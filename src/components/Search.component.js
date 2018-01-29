@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import YApiSearch from "youtube-api-search";
 
-class Search extends React.Component {
+class Search extends Component {
     constructor(props) {
         super(props);
 
