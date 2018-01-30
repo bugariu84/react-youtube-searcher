@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import YApiSearch from "youtube-api-search";
 
 class Search extends Component {
     constructor(props) {

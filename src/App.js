@@ -15,11 +15,14 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: {}
+      selectedVideo: null
     };
 
-    YApiSearch({key: API_KEY, term: 'stefanini'}, (videos) => {
-      this.setState({videos, selectedVideo: videos[0]});
+    YApiSearch({key: API_KEY, term: 'bugariu bogdan'}, (videos) => {
+      this.setState({
+        videos, 
+        selectedVideo: videos[0]
+      });
     });
   }
 
@@ -28,8 +31,11 @@ class App extends Component {
       <div className="App container">
           <Search />
           <div className="row">
-              <VideoDetail video={this.state.videos[0]}/>
-              <VideoList videos={this.state.videos}/>
+              <VideoDetail video={this.state.selectedVideo}/>
+              <VideoList 
+                onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                videos={this.state.videos}
+              />
           </div>
       </div>
     );
